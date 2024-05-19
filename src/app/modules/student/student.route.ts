@@ -3,11 +3,11 @@ import { StudentControllers } from './student.controller';
 // import { StudentControllers } from './student.controller';
 
 const router = express.Router();
-// create or post routes
+// create or post a student routes
 router.post('/create-student', StudentControllers.createStudent);
-// find or get routes => all student
+// find or get routes => for all student
 router.get('/', StudentControllers.getAllStudents);
-// find or get routes => single student
+// find or get routes => for single student
 router.get('/:studentId', StudentControllers.getSingleStudent);
 
 export const StudentRoutes = router;

@@ -4,7 +4,7 @@ import { StudentControllers } from './student.controller';
 
 const router = express.Router();
 // create or post a student routes
-router.post('/create-student', StudentControllers.createStudent);
+// router.post('/create-student', StudentControllers.createStudent);
 // find or get routes => for all student
 router.get('/', StudentControllers.getAllStudents);
 // find or get routes => for single student

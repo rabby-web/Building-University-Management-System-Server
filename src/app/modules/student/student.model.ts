@@ -7,10 +7,11 @@ import {
   TLocalGuardian,
   TStudent,
   TUserName,
-} from './student/student.interface';
+} from './student.interface';
 import validator from 'validator';
 import { func } from 'joi';
-import config from '../config';
+import config from '../../config';
+// import config from './config';
 
 // 2. Create a Schema corresponding to the document interface.
 
@@ -106,6 +107,13 @@ const studentSchema = new Schema<TStudent, StudentModel>(
       required: [true, 'Student ID is required'],
       unique: true,
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      trim: true,
+      required: [true, 'User Id is required'],
+      unique: true,
+      ref: 'User',
+    },
     password: {
       type: String,
       trim: true,
@@ -177,15 +185,15 @@ const studentSchema = new Schema<TStudent, StudentModel>(
       required: [true, 'Local guardian information is required'],
     },
     profileImage: { type: String, trim: true },
-    isActive: {
-      type: String,
-      trim: true,
-      enum: {
-        values: ['active', 'blocked'],
-        message: '{VALUE} is not a valid status',
-      },
-      default: 'active',
-    },
+    // isActive: {
+    //   type: String,
+    //   trim: true,
+    //   enum: {
+    //     values: ['active', 'blocked'],
+    //     message: '{VALUE} is not a valid status',
+    //   },
+    //   default: 'active',
+    // },
     isDeleted: {
       type: Boolean,
       default: false,

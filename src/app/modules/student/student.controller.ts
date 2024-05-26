@@ -4,36 +4,7 @@ import { StudentServices } from './student.services';
 import { z } from 'zod';
 import studentValidationSchema from './student.validation';
 
-// create student
-const createStudent = async (req: Request, res: Response) => {
-  try {
-    // creating a schema validation using zod
 
-    const student = req.body.student;
-    // data validation using joi
-    // const { error, value } = studentValidationSchema.validate(student);
-
-    // data validation using zod
-    const zodParseData = studentValidationSchema.parse(student);
-
-    const result = await StudentServices.createStudentIntoDB(zodParseData);
-    // if (error) {
-    //   res.status(500).json({
-    //     success: false,
-    //     message: 'Something went wrong',
-    //     error: error.details,
-    //   });
-    // }
-
-    res.status(200).json({
-      success: true,
-      message: 'Student is create a successfully',
-      data: result,
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
 // find all student
 const getAllStudents = async (req: Request, res: Response) => {
   try {

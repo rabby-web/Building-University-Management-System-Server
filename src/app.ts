@@ -12,11 +12,11 @@ app.use(cors());
 // application routes
 app.use('/api/v1', router);
 
-const getAController = (req: Request, res: Response) => {
+const test = (req: Request, res: Response) => {
   res.send(200);
 };
 
-app.get('/', getAController);
+app.get('/', test);
 
 app.use(globalErrorHandler);
 

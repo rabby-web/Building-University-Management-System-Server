@@ -1,6 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import { StudentServices } from './student.services';
 import studentValidationSchema from './student.validation';
+import sendResponse from '../../utils/sendResponse';
+import httpStatus from 'http-status';
 
 // find all student
 const getAllStudents = async (
@@ -10,11 +12,17 @@ const getAllStudents = async (
 ) => {
   try {
     const result = await StudentServices.getAllStudentsFromDB();
-    res.status(200).json({
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
       success: true,
-      message: 'Students are retrieved successfully',
+      message: 'Student Created a successfully',
       data: result,
     });
+    // res.status(200).json({
+    //   success: true,
+    //   message: 'Students are retrieved successfully',
+    //   data: result,
+    // });
   } catch (err) {
     next(err);
   }
@@ -28,9 +36,10 @@ const getSingleStudent = async (
   try {
     const studentId = req.params.studentId;
     const result = await StudentServices.getSingleStudentFromDB(studentId);
-    res.status(200).json({
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
       success: true,
-      message: 'Students is retrieved successfully',
+      message: 'Student Created a successfully',
       data: result,
     });
   } catch (err) {
@@ -46,9 +55,10 @@ const deleteStudent = async (
   try {
     const studentId = req.params.studentId;
     const result = await StudentServices.deleteStudentFromDB(studentId);
-    res.status(200).json({
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
       success: true,
-      message: 'Students is delete successfully',
+      message: 'Student Created a successfully',
       data: result,
     });
   } catch (err) {

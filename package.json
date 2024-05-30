@@ -21,6 +21,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "http-status": "^1.7.4",
     "joi": "^17.13.1",
     "mongoose": "^8.3.5",
     "ts-node-dev": "^2.0.0",

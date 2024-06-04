@@ -1,6 +1,5 @@
 // import { Student } from './../student.model';
 import { Model, Types } from 'mongoose';
-import { Schema, model, connect } from 'mongoose';
 
 // 1. Create an interface representing a document in MongoDB.
 
@@ -32,7 +31,7 @@ export type TStudent = {
   password: string;
   name: TUserName;
   gender: 'male' | 'female' | 'other';
-  dateOfBirth?: string;
+  dateOfBirth?: Date;
   email: string;
   contactNo: string;
   emergencyContactNo: string;

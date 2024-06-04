@@ -1,6 +1,4 @@
-import { NextFunction, Request, RequestHandler, Response } from 'express';
 import { StudentServices } from './student.services';
-import studentValidationSchema from './student.validation';
 import sendResponse from '../../utils/sendResponse';
 import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';

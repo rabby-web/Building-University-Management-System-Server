@@ -24,3 +24,7 @@ export type TAcademicSemester = {
 };
 
 export default TAcademicSemester;
+
+export type TAcademicSemesterNameCodeMapper = {
+  [key: string]: string;
+};

@@ -15,7 +15,7 @@ router.post(
 // router.get('/', StudentControllers.getAllStudents);
 // router.get('/:studentId', StudentControllers.getSingleStudent);
 // router.delete('/:studentId', StudentControllers.deleteStudent);
-router.get('/:facultyId', academicFacultyControllers.getAllAcademicFaculties);
+router.get('/:facultyId', academicFacultyControllers.getSingleAcademicFaculty);
 
 router.patch(
   '/:facultyId',

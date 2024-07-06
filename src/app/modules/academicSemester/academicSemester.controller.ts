@@ -5,7 +5,7 @@ import { AcademicSemesterServices } from './academicSemester.service';
 import catchAsync from '../../utils/catchAsync';
 
 // create student
-const createAcademicSemester = catchAsync(async (req, res, next) => {
+const createAcademicSemester = catchAsync(async (req, res) => {
   //   const { password, student: studentData } = req.body;
   const result = await AcademicSemesterServices.createAcademicSemesterIntoDB(
     req.body,
@@ -64,5 +64,5 @@ export const academicSemesterControllers = {
   createAcademicSemester,
   getAllAcademicSemesters,
   getSingleAcademicSemester,
-  updateAcademicSemester
+  updateAcademicSemester,
 };

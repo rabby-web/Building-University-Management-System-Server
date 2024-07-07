@@ -1,7 +1,7 @@
 import express from 'express';
 import validateRequest from '../../middlwares/validateRequest';
 import { AcademicDepartmentValidation } from './academicDepartment.validation';
-import { academicDepartmentControllers } from './academicDepartment.controller';
+import { AcademicDepartmentControllers } from './academicDepartment.controller';
 
 const router = express.Router();
 
@@ -10,11 +10,11 @@ router.post(
   validateRequest(
     AcademicDepartmentValidation.createAcademicDepartmentValidationSchema,
   ),
-  academicDepartmentControllers.createAcademicDepartment,
+  AcademicDepartmentControllers.createAcademicDepartment,
 );
 router.get(
   '/:departmentId',
-  academicDepartmentControllers.getSingleAcademicDepartment,
+  AcademicDepartmentControllers.getSingleAcademicDepartment,
 );
 
 router.patch(
@@ -22,9 +22,9 @@ router.patch(
   validateRequest(
     AcademicDepartmentValidation.updateAcademicDepartmentValidationSchema,
   ),
-  academicDepartmentControllers.updateAcademicDepartment,
+  AcademicDepartmentControllers.updateAcademicDepartment,
 );
 
-router.get('/', academicDepartmentControllers.getAllAcademicDepartments);
+router.get('/', AcademicDepartmentControllers.getAllAcademicDepartments);
 
 export const AcademicDepartmentRoutes = router;

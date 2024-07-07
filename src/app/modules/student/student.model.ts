@@ -1,4 +1,4 @@
-import { Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 import {
   // StudentMethods,
@@ -9,8 +9,8 @@ import {
   TUserName,
 } from './student.interface';
 import validator from 'validator';
-import { func } from 'joi';
-import config from '../../config';
+// import { func } from 'joi';
+// import config from '../../config';
 // import config from './config';
 
 // 2. Create a Schema corresponding to the document interface.
@@ -181,6 +181,10 @@ const studentSchema = new Schema<TStudent, StudentModel>(
     isDeleted: {
       type: Boolean,
       default: false,
+    },
+    academicDepartment: {
+      type: Schema.Types.ObjectId,
+      ref: 'AcademicDepartment',
     },
   },
   {

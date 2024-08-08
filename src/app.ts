@@ -1,4 +1,4 @@
-import express, { Application, NextFunction, Request, Response } from 'express';
+import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import notFound from './app/middlwares/notFound';
 import globalErrorHandler from './app/middlwares/globalErrorHandler';

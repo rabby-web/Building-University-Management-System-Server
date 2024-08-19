@@ -1,6 +1,5 @@
-import express, { NextFunction, Request, Response } from 'express';
+import express from 'express';
 import { userControllers } from './user.controller';
-import { AnyZodObject } from 'zod';
 import { createStudentValidationSchema } from '../student/student.validation';
 import validateRequest from '../../middlwares/validateRequest';
 const router = express.Router();

@@ -4,7 +4,6 @@ import {
   AcademicSemesterName,
   Months,
 } from './academicSemester.constants';
-import { TAcademicSemesterName } from './academicSemester.interface';
 
 const createAcademicSemesterValidationSchema = z.object({
   body: z.object({

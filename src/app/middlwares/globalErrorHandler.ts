@@ -9,6 +9,7 @@ import { TErrorSources } from '../interface/error';
 import config from '../config';
 import handleZodError from '../errors/handleZodError';
 import handelValidationError from '../errors/handleValidationError';
+import handleCastError from '../errors/handleCastError';
 
 const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
   // setting default values
@@ -31,6 +32,11 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
     // console.log(simpleFieldError);
   } else if (err?.name === 'ValidationError') {
     const simpleFieldError = handelValidationError(err);
+    statusCode = simpleFieldError?.statusCode;
+    message = simpleFieldError?.message;
+    errorSources = simpleFieldError?.errorSources;
+  } else if (err?.name === 'CastError') {
+    const simpleFieldError = handleCastError(err);
     statusCode = simpleFieldError?.statusCode;
     message = simpleFieldError?.message;
     errorSources = simpleFieldError?.errorSources;

@@ -13,15 +13,20 @@ const createAcademicSemesterIntoDB = async (payload: TAcademicSemester) => {
   return result;
 };
 
+// getAll Academic Semesters FromDB
 const getAllAcademicSemestersFromDB = async () => {
   const result = await AcademicSemester.find();
   return result;
 };
 
+// get Single Academic Semester
+
 const getSingleAcademicSemesterFromDB = async (id: string) => {
   const result = await AcademicSemester.findById(id);
   return result;
 };
+
+// update academic semester
 const updateAcademicSemesterIntoDB = async (
   id: string,
   payload: Partial<TAcademicSemester>,

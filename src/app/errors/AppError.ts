@@ -1,3 +1,4 @@
+// Custom Error class to handle application-specific errors with an HTTP status code.
 class AppError extends Error {
   public statusCode: number;
 
@@ -12,4 +13,5 @@ class AppError extends Error {
   }
 }
 
+// Custom error class to include an HTTP status code with error messages.
 export default AppError;

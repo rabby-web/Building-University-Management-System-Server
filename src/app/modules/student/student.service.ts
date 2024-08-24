@@ -30,6 +30,7 @@ const getAllStudentsFromDB = async (query: Record<string, unknown>) => {
   // Filtering
   
 
+
   const result = await searchQuery
     .find(query)
     .populate('admissionSemester')

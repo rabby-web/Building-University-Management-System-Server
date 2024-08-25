@@ -1,9 +1,13 @@
 import mongoose from 'mongoose';
 import { TErrorSources, TGenericErrorResponse } from '../interface/error';
 
+
+// Function to handle Mongoose CastError
 const handleCastError = (
   err: mongoose.Error.CastError,
 ): TGenericErrorResponse => {
+
+  //constructing error sources caseError
   const errorSources: TErrorSources = [
     {
       path: err.path,
@@ -11,7 +15,7 @@ const handleCastError = (
     },
   ];
 
-  const statusCode = 400;
+  const statusCode = 400;  // Setting HTTP status code for invalid ID
 
   return {
     statusCode,
@@ -20,4 +24,5 @@ const handleCastError = (
   };
 };
 
+// Exporting the error handler function as default
 export default handleCastError;

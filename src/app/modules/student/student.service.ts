@@ -13,6 +13,8 @@ import { TStudent } from './student.interface';
 // find all student
 const getAllStudentsFromDB = async (query: Record<string, unknown>) => {
   console.log('base query', query);
+  const queryObj = { ...query };
+
   // {email: {$regex: query.searchTerm,$options: i}}
   const studentSearchableFields = ['email', 'name.firstName', 'presentAddress'];
 
@@ -28,11 +30,12 @@ const getAllStudentsFromDB = async (query: Record<string, unknown>) => {
   });
 
   // Filtering
-  
-
+  const excludeFields = ['searchTerm'];
+  excludeFields.forEach((el) => delete queryObj[el]);
+  console.log(query, queryObj);
 
   const result = await searchQuery
-    .find(query)
+    .find(queryObj)
     .populate('admissionSemester')
     .populate({
       path: 'academicDepartment',

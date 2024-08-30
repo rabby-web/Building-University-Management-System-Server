@@ -200,6 +200,11 @@ studentSchema.statics.isUserExists = async function (id: string) {
   return existingUser;
 };
 
+// virtual
+studentSchema.virtual('fullName').get(function () {
+  return this?.name?.firstName + this?.name?.middleName + this?.name?.lastName;
+});
+
 // query middle wear
 studentSchema.pre('find', function (next) {
   this.find({ isDeleted: { $ne: true } });
@@ -208,11 +213,6 @@ studentSchema.pre('find', function (next) {
 studentSchema.pre('findOne', function (next) {
   this.findOne({ isDeleted: { $ne: true } });
   next();
-});
-
-// virtual
-studentSchema.virtual('fullName').get(function () {
-  return `${this.name.firstName} ${this.name.middleName} ${this.name.lastName}`;
 });
 
 studentSchema.pre('aggregate', function (next) {
